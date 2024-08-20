@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>serie</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let item of temporada">
+    <img alt="Silhouette of mountains" src="{{item.image.original}}" class="small-img"/>
+    <ion-card-header>
+      <ion-card-title>episode order: {{item.episodeOrder}}</ion-card-title>
+      <ion-card-subtitle>premiere date: {{item.premiereDate}}</ion-card-subtitle>
+      <ion-card-subtitle>endDate: {{item.endDate}}</ion-card-subtitle>
+      <ion-card-subtitle>number: {{item.number}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-button [routerLink]="['/episodios', item.id]" expand="block" fill="clear" shape="round">
+      OBSERVAR EPISODIOS
+    </ion-button>
+  </ion-card>
+</ion-content>
+l

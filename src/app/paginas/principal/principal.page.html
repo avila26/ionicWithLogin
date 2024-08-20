@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>API</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" color="danger" size="small">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form>
+    <!-- buscar por pelicula -->
+    <ion-searchbar
+      #nSerie
+      (keyup.enter)="buscarPSerie(nSerie)"
+      animated="true"
+      placeholder="Buscar Pelicula..."
+    ></ion-searchbar>
+
+    <ion-card *ngFor="let item of serie">
+      <img alt="Silhouette of mountains"   [src]="item.show.image.original" [routerLink]="['/serie', item.show.id]"/>
+      <ion-card-header>
+        <ion-card-title> {{item.show.name}} </ion-card-title>
+        <ion-card-subtitle> {{item.show.language}} </ion-card-subtitle>
+        <ion-card-subtitle> {{item.show.genres}} </ion-card-subtitle>
+        <ion-card-subtitle> {{item.show.officialSite}} </ion-card-subtitle>
+        <ion-card-subtitle> {{item.show.id}} </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>{{item.show.summary}}</ion-card-content>
+      <ion-button [routerLink]="['/serie', item.show.id]">Ver detalles</ion-button>
+    </ion-card>
+
+  </form>
+</ion-content>

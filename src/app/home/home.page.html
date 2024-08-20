@@ -1,0 +1,41 @@
+
+
+<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>HOME</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <form method="POST">
+      <ion-item>
+        <ion-input type="email" #email labelPlacement="floating">
+          <div slot="label">
+            Email <ion-text color="danger">(Required)</ion-text>
+          </div>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="password" #password labelPlacement="floating">
+          <div slot="label">
+            Password <ion-text color="danger">(Required)</ion-text>
+          </div>
+        </ion-input>
+      </ion-item>
+
+         <ion-button class="custom-button" (click)="login(email, password)">
+          <ion-icon slot="start" name="log-in"></ion-icon>
+          Iniciar sesión
+        </ion-button>
+        <br>
+
+        <ion-button routerLink="/registrar" expand="block" fill="clear" shape="round">
+          <ion-icon slot="start" name="person-add-outline"></ion-icon>
+          Registrarse
+        </ion-button>
+
+    </form>
+  </div>
+</ion-content>
